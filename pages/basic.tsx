@@ -1,8 +1,5 @@
 import type { NextPage } from "next";
-import {
-  VariableSizeGrid as Grid,
-  GridChildComponentProps,
-} from "react-window";
+import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 
 const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
   <div style={style}>
@@ -10,7 +7,7 @@ const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
   </div>
 );
 
-const Basic: NextPage = () => {
+const Grid = () => {
   // These item sizes are arbitrary.
   // Yours should be based on the content of the item.
   const columnWidths = new Array(1000)
@@ -21,7 +18,7 @@ const Basic: NextPage = () => {
     .map(() => 25 + Math.round(Math.random() * 50));
 
   return (
-    <Grid
+    <VariableSizeGrid
       columnCount={1000}
       columnWidth={(index) => columnWidths[index]}
       height={150}
@@ -30,8 +27,11 @@ const Basic: NextPage = () => {
       width={300}
     >
       {Cell}
-    </Grid>
+    </VariableSizeGrid>
   );
+};
+const Basic: NextPage = () => {
+  return <Grid />;
 };
 
 export default Basic;
