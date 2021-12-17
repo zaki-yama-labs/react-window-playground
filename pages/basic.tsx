@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 
 const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
-  <div style={style}>
+  <div className="cell" style={style}>
     Item {rowIndex},{columnIndex}
   </div>
 );
@@ -19,6 +19,7 @@ const Grid = () => {
 
   return (
     <VariableSizeGrid
+      className="grid"
       columnCount={1000}
       columnWidth={(index) => columnWidths[index]}
       height={150}
