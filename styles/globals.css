@@ -36,3 +36,7 @@ a {
 .header {
   background-color: #fafaf9;
 }
+
+.row-hovered {
+  background-color: #f3f2f2;
+}
