@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+}
+
+.leftGrid,
+.rightGrid {
+  border: 1px solid #000000;
+  color: #514f4d;
+}
+
+.leftGridCell,
+.rightGridCell {
+  border-right: 1px solid #b0adab;
+  border-bottom: 1px solid #b0adab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.leftGridCell {
+  background-color: #eee8aa;
+}
+
+.leftGridCell:hover,
+.rightGridCell:hover {
+  background-color: #f3f2f2;
+}
