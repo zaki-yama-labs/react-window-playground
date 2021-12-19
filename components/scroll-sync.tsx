@@ -49,19 +49,21 @@ const GridWithScrollSync = () => {
 
   return (
     <div className={styles.container}>
-      <VariableSizeGrid
-        ref={leftGridRef}
-        onScroll={onScroll}
-        className={styles.leftGrid}
-        width={columnWidths[0]}
-        height={300}
-        columnWidth={(index) => columnWidths[index]}
-        rowHeight={(index) => rowHeights[index]}
-        columnCount={1}
-        rowCount={1000}
-      >
-        {LeftGridCell}
-      </VariableSizeGrid>
+      <div style={{ width: columnWidths[0] }}>
+        <VariableSizeGrid
+          ref={leftGridRef}
+          onScroll={onScroll}
+          className={styles.leftGrid}
+          width={columnWidths[0] + 20}
+          height={300}
+          columnWidth={(index) => columnWidths[index]}
+          rowHeight={(index) => rowHeights[index]}
+          columnCount={1}
+          rowCount={1000}
+        >
+          {LeftGridCell}
+        </VariableSizeGrid>
+      </div>
       <VariableSizeGrid
         ref={rightGridRef}
         onScroll={onScroll}
