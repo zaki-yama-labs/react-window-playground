@@ -7,16 +7,18 @@ const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
   </div>
 );
 
-const Grid = () => {
-  // These item sizes are arbitrary.
-  // Yours should be based on the content of the item.
-  const columnWidths = new Array(1000)
-    .fill(true)
-    .map(() => 75 + Math.round(Math.random() * 50));
-  const rowHeights = new Array(1000)
-    .fill(true)
-    .map(() => 25 + Math.round(Math.random() * 50));
+const columnWidths = new Array(1000)
+  .fill(true)
+  .map(() => 75 + Math.round(Math.random() * 50));
+const rowHeights = new Array(1000)
+  .fill(true)
+  .map(() => 25 + Math.round(Math.random() * 50));
 
+/**
+ * Basic grid component.
+ * ref. https://react-window.vercel.app/#/examples/grid/variable-size
+ */
+export const BasicGrid = () => {
   return (
     <VariableSizeGrid
       className="grid"
@@ -31,8 +33,3 @@ const Grid = () => {
     </VariableSizeGrid>
   );
 };
-const Basic: NextPage = () => {
-  return <Grid />;
-};
-
-export default Basic;
