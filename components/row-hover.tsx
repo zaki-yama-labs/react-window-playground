@@ -40,10 +40,10 @@ const GridWithRowHover = () => {
       className="grid"
       columnCount={1000}
       columnWidth={100}
-      height={150}
+      height={300}
       rowCount={1000}
       rowHeight={50}
-      width={300}
+      width={600}
       itemData={{
         hoveredRowIndex,
         setHoveredRowIndex,

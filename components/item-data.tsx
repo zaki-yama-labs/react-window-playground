@@ -2,7 +2,13 @@ import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 
 import records from "./data.json";
 
-type Record = typeof records[0];
+type Record = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  city: string;
+};
 
 const columnWidths = {
   id: 40,
@@ -12,14 +18,16 @@ const columnWidths = {
   city: 100,
 };
 
+type Data = Record[];
+
 const Cell = ({
   columnIndex,
   rowIndex,
   style,
   data,
 }: GridChildComponentProps) => {
-  const record = data[rowIndex];
-  const key = Object.keys(record)[columnIndex];
+  const record = (data as Data)[rowIndex];
+  const key = (Object.keys(record) as Array<keyof Record>)[columnIndex];
 
   return (
     <div className="cell" style={style}>
@@ -35,13 +43,13 @@ const GridWithItemData = () => {
       columnCount={5}
       columnWidth={(index) => {
         return columnWidths[
-          (Object.keys(records[0]) as (keyof Record)[])[index]
+          (Object.keys(records[0]) as Array<keyof Record>)[index]
         ];
       }}
-      height={150}
+      height={300}
       rowCount={records.length}
       rowHeight={(index) => 50}
-      width={300}
+      width={600}
       itemData={records}
     >
       {Cell}

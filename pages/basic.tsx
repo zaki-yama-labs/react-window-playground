@@ -22,10 +22,10 @@ const Grid = () => {
       className="grid"
       columnCount={1000}
       columnWidth={(index) => columnWidths[index]}
-      height={150}
+      height={300}
       rowCount={1000}
       rowHeight={(index) => rowHeights[index]}
-      width={300}
+      width={600}
     >
       {Cell}
     </VariableSizeGrid>
