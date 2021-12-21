@@ -4,6 +4,7 @@ import {
   GridChildComponentProps,
   GridOnScrollProps,
 } from "react-window";
+import scrollbarSize from "dom-helpers/scrollbarSize";
 
 import styles from "./scroll-sync.module.css";
 
@@ -38,7 +39,7 @@ const GridWithScrollSync = () => {
   const leftGridRef = useRef<VariableSizeGrid>(null);
   const rightGridRef = useRef<VariableSizeGrid>(null);
 
-  const onScroll = ({ scrollLeft, scrollTop }: GridOnScrollProps) => {
+  const onScroll = ({ scrollTop }: GridOnScrollProps) => {
     if (leftGridRef.current) {
       leftGridRef.current.scrollTo({ scrollTop });
     }
@@ -49,12 +50,13 @@ const GridWithScrollSync = () => {
 
   return (
     <div className={styles.container}>
-      <div style={{ width: columnWidths[0] }}>
+      <div style={{ width: columnWidths[0], overflow: "hidden" }}>
         <VariableSizeGrid
           ref={leftGridRef}
           onScroll={onScroll}
           className={styles.leftGrid}
-          width={columnWidths[0] + 20}
+          style={{ overflowX: "hidden", overflowY: "auto" }}
+          width={columnWidths[0] + scrollbarSize()}
           height={300}
           columnWidth={(index) => columnWidths[index]}
           rowHeight={(index) => rowHeights[index]}
