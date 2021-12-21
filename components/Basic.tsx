@@ -1,8 +1,9 @@
-import type { NextPage } from "next";
 import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 
+import styles from "./Basic.module.css";
+
 const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
-  <div className="cell" style={style}>
+  <div className={styles.cell} style={style}>
     Item {rowIndex},{columnIndex}
   </div>
 );
@@ -21,7 +22,7 @@ const rowHeights = new Array(1000)
 export const BasicGrid = () => {
   return (
     <VariableSizeGrid
-      className="grid"
+      className={styles.grid}
       columnCount={1000}
       columnWidth={(index) => columnWidths[index]}
       height={300}

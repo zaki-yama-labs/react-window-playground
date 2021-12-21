@@ -1,12 +1,9 @@
 import { ComponentMeta } from "@storybook/react";
-import Basic from "../pages/basic";
+import { BasicGrid } from "../components/Basic";
 
 export default {
   title: "Basic",
-  component: Basic,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-} as ComponentMeta<typeof Basic>;
+  component: BasicGrid,
+} as ComponentMeta<typeof BasicGrid>;
 
-export const BasicGrid = () => <Basic />;
+export const Default = () => <BasicGrid />;

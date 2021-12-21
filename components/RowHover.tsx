@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { FixedSizeGrid, GridChildComponentProps } from "react-window";
 
+import styles from "./RowHover.module.css";
+
 type ItemData = {
   hoveredRowIndex: number | null;
   setHoveredRowIndex: Dispatch<SetStateAction<number | null>>;
@@ -13,7 +15,9 @@ const Cell = ({
   data,
 }: GridChildComponentProps) => {
   const { hoveredRowIndex, setHoveredRowIndex } = data as ItemData;
-  const className = `cell ${hoveredRowIndex === rowIndex ? "row-hovered" : ""}`;
+  const className = `${styles.cell} ${
+    hoveredRowIndex === rowIndex ? styles.rowHover : ""
+  }`;
   return (
     <div
       className={className}
@@ -32,12 +36,12 @@ const Cell = ({
  * Grid with color on hovered row.
  * ref. https://github.com/bvaughn/react-window/issues/252
  */
-const GridWithRowHover = () => {
+export const GridWithRowHover = () => {
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
 
   return (
     <FixedSizeGrid
-      className="grid"
+      className={styles.grid}
       columnCount={1000}
       columnWidth={100}
       height={300}
@@ -53,5 +57,3 @@ const GridWithRowHover = () => {
     </FixedSizeGrid>
   );
 };
-
-export default GridWithRowHover;

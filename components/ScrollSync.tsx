@@ -6,7 +6,7 @@ import {
 } from "react-window";
 import scrollbarSize from "dom-helpers/scrollbarSize";
 
-import styles from "./scroll-sync.module.css";
+import styles from "./ScrollSync.module.css";
 
 const LeftGridCell = ({
   columnIndex,
@@ -35,7 +35,7 @@ const rowHeights = new Array(1000)
   .fill(true)
   .map(() => 25 + Math.round(Math.random() * 50));
 
-const GridWithScrollSync = () => {
+export const GridWithScrollSync = () => {
   const leftGridRef = useRef<VariableSizeGrid>(null);
   const rightGridRef = useRef<VariableSizeGrid>(null);
 
@@ -82,5 +82,3 @@ const GridWithScrollSync = () => {
     </div>
   );
 };
-
-export default GridWithScrollSync;

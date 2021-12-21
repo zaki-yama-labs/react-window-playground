@@ -1,5 +1,7 @@
 import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 
+import styles from "./ItemData.module.css";
+
 import records from "./data.json";
 
 type Record = {
@@ -30,16 +32,16 @@ const Cell = ({
   const key = (Object.keys(record) as Array<keyof Record>)[columnIndex];
 
   return (
-    <div className="cell" style={style}>
+    <div className={styles.cell} style={style}>
       {record[key]}
     </div>
   );
 };
 
-const GridWithItemData = () => {
+export const GridWithItemData = () => {
   return (
     <VariableSizeGrid
-      className="grid"
+      className={styles.grid}
       columnCount={5}
       columnWidth={(index) => {
         return columnWidths[
@@ -56,5 +58,3 @@ const GridWithItemData = () => {
     </VariableSizeGrid>
   );
 };
-
-export default GridWithItemData;

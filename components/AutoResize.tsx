@@ -1,7 +1,7 @@
 import { VariableSizeGrid, GridChildComponentProps } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 
-import styles from "./auto-resize.module.css";
+import styles from "./AutoResize.module.css";
 
 const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
   <div className={styles.cell} style={style}>
@@ -16,7 +16,7 @@ const rowHeights = new Array(1000)
   .fill(true)
   .map(() => 25 + Math.round(Math.random() * 50));
 
-const GridWithAutoResize = () => {
+export const GridWithAutoResize = () => {
   return (
     <>
       <p>
@@ -42,5 +42,3 @@ const GridWithAutoResize = () => {
     </>
   );
 };
-
-export default GridWithAutoResize;
